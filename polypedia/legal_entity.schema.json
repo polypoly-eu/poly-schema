@@ -30,6 +30,7 @@
           "additionalProperties": false,
           "properties": {
             "ppid": {
+              "description": "Unique polypoly ID.",
               "type": "string"
             },
             "common_name": {
