@@ -9,15 +9,19 @@
     "required": ["dataset"],
     "properties": {
       "dataset": {
+        "description": "Dataset where this source was found.",
         "type": "string"
       },
       "url": {
+        "description": "URL of the source..",
         "type": ["string", "null"]
       },
       "archive_url": {
+        "description": "Archive.org URL of the source.",
         "type":  ["string", "null"]
       },
       "notes": {
+        "description": "Research notes URL of the source.",
         "type": ["string", "null"]
       }
     }
