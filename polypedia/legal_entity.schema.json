@@ -1,0 +1,333 @@
+{
+  "$id": "legal_entity.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Legal Entity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["legal_entity"],
+  "properties": {
+    "legal_entity": {
+      "type": "object",
+      "description": "The container for the legal entity.",
+      "additionalProperties": false,
+      "required": ["status","identifiers","basic_info"],
+      "properties": {
+        "status": {
+          "title": "Publishing Status",
+          "description": "The publishing status of the legal entity.",
+          "type": "string",
+          "enum": [
+            "published",
+            "unpublished",
+            "archived",
+            "test"
+          ]
+        },
+        "identifiers": {
+          "type": "object",
+          "description": "Primary identifying data of the legal entity.",
+          "required": ["ppid","common_name"],
+          "additionalProperties": false,
+          "properties": {
+            "ppid": {
+              "type": "string"
+            },
+            "common_name": {
+              "type": "string"
+            },
+            "aliases": {
+              "type": ["array", "null"]
+            },
+            "id_map": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "north_data_id": {
+                  "type": ["string", "number", "null"]
+                },
+                "brex_id": {
+                  "type": ["string", "number", "null"]
+                },
+                "opencorporates_id": {
+                  "type": ["string", "number", "null"]
+                },
+                "research_id": {
+                  "type": ["string", "number", "null"]
+                },
+                "legacy_research_id": {
+                  "type": ["string", "number", "null"]
+                }
+              }
+            },
+            "registration": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "value": { "type": ["string", "number"] },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "registration_history": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "values": { "$ref": "definitions.schema.json#/timespan_values" },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "legal_name": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "value": { "type": "string" },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "legal_name_history": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "values": { "$ref": "definitions.schema.json#/timespan_values" },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "founding_date": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "value": {
+                  "type": ["string", "null"],
+                  "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+                },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "legal_form": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "properties": {
+                    "legal_form_description": { "type": ["string","null"] },
+                    "legal_form_description_en": { "type": ["string","null"] },
+                    "code": { "type": ["string","null"] },
+                    "acronym": { "type": ["string","null"] },
+                    "jurisdiction": { "type": ["string","null"] }
+                  }
+                },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "jurisdiction": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "value": { "type": "string" },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            }
+          }
+        },
+        "basic_info": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "logo": {
+              "type": ["object"],
+              "additionalProperties": false,
+              "properties": {
+                "value": { "type": "string" },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "registered_address": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "value": { "$ref": "definitions.schema.json#/address" },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "alternative_address": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "value": { "$ref": "definitions.schema.json#/address" },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "websites": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "values": { "type": "array" },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            }
+          }
+        },
+        "editorial_content": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "tags": { "type": ["array", "null"] },
+            "editorials" : {
+              "type": ["array", "null"],
+              "items": { "$ref": "definitions.schema.json#/editorial" },
+              "default": []
+            }
+          }
+        },
+        "research_info": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "notes": { "type": ["string", "null"] },
+            "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+          }
+        },
+        "data_collection": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "personal_data_handling": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "value": { "type": "string"}
+              }
+            },
+            "data_regions": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "values": { "type": "array" },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "policies": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "value": { "type": "string"}
+              }
+            }
+          }
+        },
+        "entity_relations": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "editorial_parent_entity": { "type": "string" },
+            "parent": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "value": { "type": "string" },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "related_entities": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "values": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["ppid", "relationship_type"],
+                    "properties": {
+                      "ppid": {
+                        "type": ["string", "null"]
+                      },
+                      "north_data_id": {
+                        "type": ["string", "null", "number"]
+                      },
+                      "relationship_type": {
+                        "type": "string"
+                      },
+                      "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+                    }
+                  }
+                },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "management_tenures": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "value": { "type": "string"}
+              }
+            }
+          }
+        },
+        "entity_details": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "industry_category": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "values": { "type": "array" },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "slogan": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "slogan_i18n": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "de": { "type": ["string", "null"] },
+                    "en": { "type": ["string", "null"] }
+                  }
+                },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "verticals": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "properties": {
+                "values": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["nace_code"],
+                    "properties": {
+                      "nace_code": {
+                        "type": ["string", "number"]
+                      }
+                    }
+                  }
+                },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "financial_data": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "value": { "type": "string"}
+              }
+            },
+            "events": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "value": { "type": "string"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

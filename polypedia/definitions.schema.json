@@ -1,0 +1,109 @@
+{
+  "$id": "definitions.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "research_source": {
+    "title": "Research Source",
+    "description": "Source of this data.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["dataset"],
+    "properties": {
+      "dataset": {
+        "type": "string"
+      },
+      "url": {
+        "type": ["string", "null"]
+      },
+      "archive_url": {
+        "type":  ["string", "null"]
+      },
+      "notes": {
+        "type": ["string", "null"]
+      }
+    }
+  },
+  "research_sources": {
+    "type": ["array", "null"],
+    "items": { "$ref": "#/research_source" },
+    "default": []
+  },
+  "timespan_value": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["value","start_date","end_date"],
+    "properties": {
+      "value": {
+        "type": "string"
+      },
+      "start_date": {
+        "type": "string"
+      },
+      "end_date": {
+        "type": "string"
+      }
+    }
+  },
+  "timespan_values": {
+    "type": "array",
+    "items": { "$ref": "#/timespan_value" },
+    "default": []
+  },
+  "address": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "street": {
+        "type": ["string", "null"]
+      },
+      "city": {
+        "type": ["string", "null"]
+      },
+      "postal_code": {
+        "type": ["string", "number", "null"]
+      },
+      "country": {
+        "type": ["string", "null"]
+      },
+      "latitude": {
+        "type": ["string", "number", "null"]
+      },
+      "longitude": {
+        "type": ["string", "number", "null"]
+      }
+    }
+  },
+  "editorial": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "title_i18n": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "en": {
+            "type": "string"
+          },
+          "de": {
+            "type": "string"
+          }
+        }
+      },
+      "body_i18n": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "en": {
+            "type": "string"
+          },
+          "de": {
+            "type": "string"
+          }
+        }
+      },
+      "tags": {
+        "type": "array"
+      },
+      "research_sources": { "$ref": "#/research_sources" }
+    }
+  }
+}
