@@ -34,9 +34,11 @@
               "type": "string"
             },
             "common_name": {
+              "common_name": "Common name for display to end-users.",
               "type": "string"
             },
             "aliases": {
+              "common_name": "Aliases for matching references to this entity.",
               "type": ["array", "null"]
             },
             "id_map": {
@@ -44,28 +46,40 @@
               "additionalProperties": false,
               "properties": {
                 "north_data_id": {
+                  "description": "North Data ID.",
                   "type": ["string", "number", "null"]
                 },
                 "brex_id": {
+                  "description": "BREX ID.",
                   "type": ["string", "number", "null"]
                 },
                 "opencorporates_id": {
+                  "description": "OpenCorporates ID.",
                   "type": ["string", "number", "null"]
                 },
                 "research_id": {
+                  "description": "Polypoly Research ID.",
                   "type": ["string", "number", "null"]
                 },
                 "legacy_research_id": {
+                  "description": "Legacy Polypoly Research ID.",
                   "type": ["string", "number", "null"]
                 }
               }
             },
             "registration": {
+              "description": "Official entity registration info.",
               "type": ["object", "null"],
               "additionalProperties": false,
               "properties": {
-                "value": { "type": ["string", "number"] },
-                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+                "value": {
+                  "description": "Registration value.",
+                  "type": ["string", "number"]
+                },
+                "research_sources" : {
+                  "description": "Research sources for registration value.",
+                  "$ref": "definitions.schema.json#/research_sources"
+                }
               }
             },
             "registration_history": {
