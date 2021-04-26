@@ -30,7 +30,7 @@
               "type": "string"
             },
             "middle_name": {
-              "type": "string"
+              "type": [ "string", "null" ]
             },
             "last_name": {
               "type": "string"
