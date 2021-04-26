@@ -1,0 +1,44 @@
+{
+  "$id": "personal_data_handling.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Entity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["financial_data"],
+  "definitions": {
+    "count_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "properties": {
+    "derived_category_info": {
+      "type": "object",
+      "properties": {
+        "unspecified": { "$ref": "#/definitions/count_item" }
+      },
+      "patternProperties": {
+        "^dpv:": { "$ref": "#/definitions/count_item" }
+      }
+    },
+    "derived_purpose_info": {
+      "type": "object",
+      "properties": {
+        "unspecified": { "$ref": "#/definitions/count_item" }
+      },
+      "patternProperties": {
+        "^dpv:": { "$ref": "#/definitions/count_item" }
+      }
+    },
+    "data_recipients": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    }
+  }
+}
