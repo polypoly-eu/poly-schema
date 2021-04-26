@@ -1,0 +1,56 @@
+{
+  "$id": "policies.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Policies",
+  "type": "object",
+  "additionalProperties": false,
+  "definitions": {
+    "policy_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": { "type": "string" },
+        "policy_type": { "type": "string" },
+        "policy_type_i18n": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "en": {
+              "type": [ "string", "null" ]
+            },
+            "de": {
+              "type": [ "string", "null" ]
+            }
+          }
+        },
+        "policy_text": { "type": "string" },
+        "research_info": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "notes": { "type": [ "string", "null" ] },
+            "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+          }
+        },
+        "editorial_content": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tags": { "type": ["array", "null"] },
+            "editorials" : {
+              "type": ["array", "null"],
+              "items": { "$ref": "definitions.schema.json#/editorial" },
+              "default": []
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "policies": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/policy_item" }
+    }
+  }
+}
