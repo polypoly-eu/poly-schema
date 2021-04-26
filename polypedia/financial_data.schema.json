@@ -30,25 +30,25 @@
           "type": { "type": "string" },
           "data": {
             "type": "array",
-            "items": { "$ref": "#/definitions/financial_data_item" }
-          },
-          "research_info": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "notes": { "type": [ "string", "null" ] },
-              "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
-            }
-          },
-          "editorial_content": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "tags": { "type": ["array", "null"] },
-              "editorials" : {
-                "type": ["array", "null"],
-                "items": { "$ref": "definitions.schema.json#/editorial" },
-                "default": []
+            "items": { "$ref": "#/definitions/financial_data_item" },
+            "research_info": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "notes": { "type": [ "string", "null" ] },
+                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+              }
+            },
+            "editorial_content": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "tags": { "type": ["array", "null"] },
+                "editorials" : {
+                  "type": ["array", "null"],
+                  "items": { "$ref": "definitions.schema.json#/editorial" },
+                  "default": []
+                }
               }
             }
           }
