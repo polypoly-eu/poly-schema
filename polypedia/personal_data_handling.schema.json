@@ -4,7 +4,6 @@
   "title": "Entity",
   "type": "object",
   "additionalProperties": false,
-  "required": ["financial_data"],
   "definitions": {
     "count_item": {
       "type": "object",
