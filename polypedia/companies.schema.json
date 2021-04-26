@@ -9,10 +9,10 @@
     "properties": {
       "legal_entity": { "$ref": "legal_entity.schema.json#/properties/legal_entity" },
       "financial_data": { "$ref": "financial_data.schema.json#/properties/financial_data" },
-      "management_tenures": { "type": "array" },
       "derived_category_info": { "$ref": "personal_data_handling.schema.json#/properties/derived_category_info" },
       "data_recipients": { "$ref": "personal_data_handling.schema.json#/properties/data_recipients" },
-      "derived_purpose_info": { "$ref": "personal_data_handling.schema.json#/properties/derived_purpose_info" }
+      "derived_purpose_info": { "$ref": "personal_data_handling.schema.json#/properties/derived_purpose_info" },
+      "management_tenures": { "type": "array" }
     }
   }
 }

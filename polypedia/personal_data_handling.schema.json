@@ -18,6 +18,7 @@
   "properties": {
     "derived_category_info": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "unspecified": { "$ref": "#/definitions/count_item" }
       },
@@ -27,6 +28,7 @@
     },
     "derived_purpose_info": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "unspecified": { "$ref": "#/definitions/count_item" }
       },
