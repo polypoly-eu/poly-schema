@@ -35,7 +35,7 @@
       }
     }
   },
-  "title": "Entity",
+  "title": "Financial Data",
   "type": "object",
   "additionalProperties": false,
   "required": ["financial_data"],
