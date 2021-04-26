@@ -12,7 +12,8 @@
       "derived_category_info": { "$ref": "personal_data_handling.schema.json#/properties/derived_category_info" },
       "data_recipients": { "$ref": "personal_data_handling.schema.json#/properties/data_recipients" },
       "derived_purpose_info": { "$ref": "personal_data_handling.schema.json#/properties/derived_purpose_info" },
-      "management_tenures": { "$ref": "management_tenures.schema.json#/properties/management_tenures" }
+      "management_tenures": { "$ref": "management_tenures.schema.json#/properties/management_tenures" },
+      "policies": { "$ref": "policies.schema.json#/properties/policies" }
     }
   }
 }
