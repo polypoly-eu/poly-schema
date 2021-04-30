@@ -20,6 +20,7 @@
             "published",
             "unpublished",
             "archived",
+            "work_in_progress",
             "test"
           ]
         },
