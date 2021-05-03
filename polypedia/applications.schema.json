@@ -8,9 +8,62 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "model": {
-          "type": "string"
-        },
+        "model": { "type": "string" },
+        "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+      }
+    },
+    "active_users_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "user_count": {"type": "number"},
+        "start_date": {"type": "string"},
+        "end_date": {"type": "string"},
+        "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+      }
+    },
+    "activity_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "activity_type": {"type": "string"},
+        "amount": {"type": "number"},
+        "start_date": {"type": "string"},
+        "end_date": {"type": "string"},
+        "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+      }
+    },
+    "age_groups_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "age_group": {"type": "string"},
+        "percent": {"type": "number"},
+        "start_date": {"type": "string"},
+        "end_date": {"type": "string"},
+        "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+      }
+    },
+    "genders_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gender": {"type": "string"},
+        "percent": {"type": "number"},
+        "start_date": {"type": "string"},
+        "end_date": {"type": "string"},
+        "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+      }
+    },
+    "revenue_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stream": {"type": "string"},
+        "amount": {"type": "number"},
+        "currency": {"type": "string"},
+        "start_date": {"type": "string"},
+        "end_date": {"type": "string"},
         "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
       }
     }
@@ -41,7 +94,7 @@
             "properties": {
               "values": {
                 "type": "array",
-                "items": { "$ref": "#/definitions/business_model_item" }
+                "items": { "$ref": "#/definitions/active_users_item" }
               }
             }
           },
@@ -51,7 +104,7 @@
             "properties": {
               "values": {
                 "type": "array",
-                "items": { "$ref": "#/definitions/business_model_item" }
+                "items": { "$ref": "#/definitions/activity_item" }
               }
             }
           },
@@ -61,7 +114,7 @@
             "properties": {
               "values": {
                 "type": "array",
-                "items": { "$ref": "#/definitions/business_model_item" }
+                "items": { "$ref": "#/definitions/age_groups_item" }
               }
             }
           },
@@ -71,7 +124,7 @@
             "properties": {
               "values": {
                 "type": "array",
-                "items": { "$ref": "#/definitions/business_model_item" }
+                "items": { "$ref": "#/definitions/genders_item" }
               }
             }
           },
@@ -81,7 +134,7 @@
             "properties": {
               "values": {
                 "type": "array",
-                "items": { "$ref": "#/definitions/business_model_item" }
+                "items": { "$ref": "#/definitions/revenue_item" }
               }
             }
           },
