@@ -1,0 +1,112 @@
+{
+  "$id": "applications.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Applications",
+  "type": "object",
+  "definitions": {
+    "business_model_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "model": {
+          "type": "string",
+        },
+        "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "applications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "status": { "type": "string" },
+          "name": { "type": "string" },
+          "business_models": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": { "$ref": "#/definitions/business_model_item" }
+              }
+            }
+          },
+          "active_users": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": { "$ref": "#/definitions/business_model_item" }
+              }
+            }
+          },
+          "activity": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": { "$ref": "#/definitions/business_model_item" }
+              }
+            }
+          },
+          "age_groups": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": { "$ref": "#/definitions/business_model_item" }
+              }
+            }
+          },
+          "genders": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": { "$ref": "#/definitions/business_model_item" }
+              }
+            }
+          },
+          "revenue": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "values": {
+                "type": "array",
+                "items": { "$ref": "#/definitions/business_model_item" }
+              }
+            }
+          },
+          "research_info": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "notes": { "type": [ "string", "null" ] },
+              "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+            }
+          },
+          "editorial_content": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "tags": { "type": ["array", "null"] },
+              "editorials" : {
+                "type": ["array", "null"],
+                "items": { "$ref": "definitions.schema.json#/editorial" },
+                "default": []
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
