@@ -9,7 +9,7 @@
       "additionalProperties": false,
       "properties": {
         "model": {
-          "type": "string",
+          "type": "string"
         },
         "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
       }
