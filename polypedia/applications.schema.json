@@ -17,8 +17,8 @@
       "additionalProperties": false,
       "properties": {
         "user_count": {"type": "number"},
-        "start_date": {"type": "string"},
-        "end_date": {"type": "string"},
+        "start_date": { "$ref": "definitions.schema.json#/date" },
+        "end_date": { "$ref": "definitions.schema.json#/date" },
         "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
       }
     },
@@ -28,8 +28,8 @@
       "properties": {
         "activity_type": {"type": "string"},
         "amount": {"type": "number"},
-        "start_date": {"type": "string"},
-        "end_date": {"type": "string"},
+        "start_date": { "$ref": "definitions.schema.json#/date" },
+        "end_date": { "$ref": "definitions.schema.json#/date" },
         "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
       }
     },
@@ -39,8 +39,8 @@
       "properties": {
         "age_group": {"type": "string"},
         "percent": {"type": "number"},
-        "start_date": {"type": "string"},
-        "end_date": {"type": "string"},
+        "start_date": { "$ref": "definitions.schema.json#/date" },
+        "end_date": { "$ref": "definitions.schema.json#/date" },
         "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
       }
     },
@@ -50,8 +50,8 @@
       "properties": {
         "gender": {"type": "string"},
         "percent": {"type": "number"},
-        "start_date": {"type": "string"},
-        "end_date": {"type": "string"},
+        "start_date": { "$ref": "definitions.schema.json#/date" },
+        "end_date": { "$ref": "definitions.schema.json#/date" },
         "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
       }
     },
@@ -62,8 +62,8 @@
         "stream": {"type": "string"},
         "amount": {"type": "number"},
         "currency": {"type": "string"},
-        "start_date": {"type": "string"},
-        "end_date": {"type": "string"},
+        "start_date": { "$ref": "definitions.schema.json#/date" },
+        "end_date": { "$ref": "definitions.schema.json#/date" },
         "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
       }
     }

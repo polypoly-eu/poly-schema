@@ -61,14 +61,8 @@
             }
           }
         },
-        "start": {
-          "type": "string",
-          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
-        },
-        "end": {
-          "type": [ "string", "null" ],
-          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
-        },
+        "start": { "$ref": "definitions.schema.json#/date" },
+        "end": { "$ref": "definitions.schema.json#/date" },
         "research_info": {
           "type": "object",
           "additionalProperties": false,
