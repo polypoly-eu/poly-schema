@@ -10,6 +10,7 @@
       "additionalProperties": false,
       "required": [ "editorials" ],
       "properties": {
+        "status": { "type": "string" },
         "tags": { "type": ["array", "null"] },
         "editorials" : {
           "type": ["array"],
