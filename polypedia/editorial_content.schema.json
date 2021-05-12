@@ -19,8 +19,16 @@
           "minItems": 1
         },
         "custom_structured_data": {
-          "type": "object",
+          "type": ["object", "null"],
           "additionalProperties": true
+        },
+        "research_info": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "notes": { "type": [ "string", "null" ] },
+            "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+          }
         }
       }
     }
