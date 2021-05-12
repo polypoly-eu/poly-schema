@@ -1,0 +1,27 @@
+{
+  "$id": "editorial_content.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Editorial Content",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "editorial_content": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "editorials" ],
+      "properties": {
+        "tags": { "type": ["array", "null"] },
+        "editorials" : {
+          "type": ["array"],
+          "items": { "$ref": "definitions.schema.json#/editorial" },
+          "default": [],
+          "minItems": 1
+        },
+        "custom_structured_data": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}
