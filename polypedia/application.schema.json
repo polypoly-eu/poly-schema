@@ -1,0 +1,162 @@
+{
+  "$id": "application.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Application",
+  "type": "object",
+  "definitions": {
+    "business_model_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "model": { "type": "string" },
+        "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+      }
+    },
+    "active_users_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "user_count": {"type": "number"},
+        "start_date": { "$ref": "definitions.schema.json#/date" },
+        "end_date": { "$ref": "definitions.schema.json#/date" },
+        "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+      }
+    },
+    "activity_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "activity_type": {"type": "string"},
+        "amount": {"type": "number"},
+        "start_date": { "$ref": "definitions.schema.json#/date" },
+        "end_date": { "$ref": "definitions.schema.json#/date" },
+        "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+      }
+    },
+    "age_groups_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "age_group": {"type": "string"},
+        "percent": {"type": "number"},
+        "start_date": { "$ref": "definitions.schema.json#/date" },
+        "end_date": { "$ref": "definitions.schema.json#/date" },
+        "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+      }
+    },
+    "genders_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gender": {"type": "string"},
+        "percent": {"type": "number"},
+        "start_date": { "$ref": "definitions.schema.json#/date" },
+        "end_date": { "$ref": "definitions.schema.json#/date" },
+        "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+      }
+    },
+    "revenue_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stream": {"type": "string"},
+        "amount": {"type": "number"},
+        "currency": {"type": "string"},
+        "start_date": { "$ref": "definitions.schema.json#/date" },
+        "end_date": { "$ref": "definitions.schema.json#/date" },
+        "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "application": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": { "type": "string" },
+        "name": { "type": "string" },
+        "business_models": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/business_model_item" }
+            }
+          }
+        },
+        "active_users": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/active_users_item" }
+            }
+          }
+        },
+        "activity": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/activity_item" }
+            }
+          }
+        },
+        "age_groups": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/age_groups_item" }
+            }
+          }
+        },
+        "genders": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/genders_item" }
+            }
+          }
+        },
+        "revenue": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/revenue_item" }
+            }
+          }
+        },
+        "research_info": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "notes": { "type": [ "string", "null" ] },
+            "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+          }
+        },
+        "editorial_content": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tags": { "type": ["array", "null"] },
+            "editorials" : {
+              "type": ["array", "null"],
+              "items": { "$ref": "definitions.schema.json#/editorial" },
+              "default": []
+            }
+          }
+        }
+      }
+    }
+  }
+}
