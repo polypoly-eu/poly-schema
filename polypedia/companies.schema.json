@@ -2,18 +2,21 @@
   "$id": "companies.schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Companies",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "legal_entity": { "$ref": "legal_entity.schema.json#/properties/legal_entity" },
-      "financial_data": { "$ref": "financial_data.schema.json#/properties/financial_data" },
-      "derived_category_info": { "$ref": "personal_data_handling.schema.json#/properties/derived_category_info" },
-      "data_recipients": { "$ref": "personal_data_handling.schema.json#/properties/data_recipients" },
-      "derived_purpose_info": { "$ref": "personal_data_handling.schema.json#/properties/derived_purpose_info" },
-      "management_tenures": { "$ref": "management_tenures.schema.json#/properties/management_tenures" },
-      "policies": { "$ref": "policies.schema.json#/properties/policies" }
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[^_]+ \\([A-Z]{2}(_[A-Z]{2})?\\)$": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "legal_entity": { "$ref": "legal_entity.schema.json#/properties/legal_entity" },
+        "financial_data": { "$ref": "financial_data.schema.json#/properties/financial_data" },
+        "derived_category_info": { "$ref": "personal_data_handling.schema.json#/properties/derived_category_info" },
+        "data_recipients": { "$ref": "personal_data_handling.schema.json#/properties/data_recipients" },
+        "derived_purpose_info": { "$ref": "personal_data_handling.schema.json#/properties/derived_purpose_info" },
+        "management_tenures": { "$ref": "management_tenures.schema.json#/properties/management_tenures" },
+        "policies": { "$ref": "policies.schema.json#/properties/policies" }
+      }
     }
   }
 }
