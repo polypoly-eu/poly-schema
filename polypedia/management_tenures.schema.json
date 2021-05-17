@@ -62,7 +62,7 @@
           }
         },
         "start": { "$ref": "definitions.schema.json#/date" },
-        "end": { "$ref": "definitions.schema.json#/date" },
+        "end": { "$ref": "definitions.schema.json#/date_optional" },
         "research_info": {
           "type": "object",
           "additionalProperties": false,
