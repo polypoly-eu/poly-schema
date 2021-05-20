@@ -82,13 +82,23 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "policy_url": {"type": "string"},
-              "policy_filename": {"type": ["string", "null"]},
-              "policy_pdh": {"type": "string"},
-              "jurisdictions": {
+              "ppid": {"type": "string"},
+              "application_policies": {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "policy_url": {"type": "string"},
+                    "policy_filename": {"type": ["string", "null"]},
+                    "policy_pdh": {"type": "string"},
+                    "jurisdictions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
                 }
               }
             }
