@@ -90,8 +90,8 @@
                   "additionalProperties": false,
                   "properties": {
                     "policy_url": {"type": "string"},
-                    "policy_filename": {"type": ["string", "null"]},
-                    "policy_pdh": {"type": "string"},
+                    "policy_archive_filename": {"type": ["string", "null"]},
+                    "policy_pdh_filename": {"type": "string"},
                     "policy_jurisdictions": {
                       "type": "array",
                       "items": {
