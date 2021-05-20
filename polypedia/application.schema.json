@@ -76,6 +76,24 @@
       "properties": {
         "status": { "type": "string" },
         "name": { "type": "string" },
+        "responsible_entities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "policy_url": {"type": "string"},
+              "policy_filename": {"type": ["string", "null"]},
+              "policy_pdh": {"type": "string"},
+              "jurisdictions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
         "business_models": {
           "type": "object",
           "additionalProperties": false,
