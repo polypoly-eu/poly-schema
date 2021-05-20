@@ -92,7 +92,7 @@
                     "policy_url": {"type": "string"},
                     "policy_filename": {"type": ["string", "null"]},
                     "policy_pdh": {"type": "string"},
-                    "jurisdictions": {
+                    "policy_jurisdictions": {
                       "type": "array",
                       "items": {
                         "type": "string"
