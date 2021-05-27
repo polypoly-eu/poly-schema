@@ -1,0 +1,155 @@
+{
+  "$id": "config.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Membership Management Configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["product"],
+  "properties": {
+    "product": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "product_info": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "^\\d+$": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "shares": {"type": "number", "multipleOf" : 1},
+                "language": {
+                  "type": "string",
+                  "pattern": "^[a-z]{2}-[A-Z]{2}$"
+                }
+              }
+            }
+          }
+        },
+        "shares": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "value": {"type": "number", "multipleOf" : 1},
+            "price": {"type": "number"}
+          }
+        }
+      }
+    },
+    "transactionlist": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "merge-key": {"type": "string"},
+        "citizenship-keys": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "^[a-z]{2}$": {
+              "type": "string"
+            }
+          }
+        },
+        "headers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "memberlist": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "merge-key": {"type": "string"},
+        "path": {"type": "string"},
+        "pattern": {"type": "string"},
+        "headers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "mail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "send_method": {"type": "string"},
+        "smtp": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "port": {"type": "number", "multipleOf" : 1},
+            "host": {"type": "string"},
+            "user": {"type": "string"},
+            "password": { "type": "string", "pattern": "^~!vault$" },
+            "starttls": {"type": "boolean"},
+            "ssl-tls": {"type": "boolean"},
+            "send-delay": {"type": "number"}
+          }
+        },
+        "mailjet": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "api_key": { "type": "string", "pattern": "^~!vault$" },
+            "api_secret": { "type": "string", "pattern": "^~!vault$" },
+            "contact_lists": {
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                "^\\d+$": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "add_action": {
+                      "type": "string",
+                      "enum": [ "addforce", "addnoforce", "remove", "unsub "]
+                    },
+                    "remove_action": {
+                      "type": ["string", "boolean"],
+                      "enum": [ "remove", "unsub", false, "False", "false"]
+                    },
+                    "remove_metadata": {"type": "boolean"}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "templates": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "^[a-z_]+$": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "sender_name": { "type": "string" },
+                "sender_mail": { "type": "string" },
+                "reply-to_name": { "type": "string" },
+                "reply-to_mail": { "type": "string" },
+                "bcc_name": { "type": ["string", "null"] },
+                "bcc_mail": { "type": ["string", "null"] },
+                "vars": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "patternProperties": {
+                    "^[a-z]{2}-[A-Z]{2}$": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
