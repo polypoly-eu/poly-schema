@@ -130,11 +130,11 @@
               "additionalProperties": false,
               "properties": {
                 "sender_name": { "type": "string" },
-                "sender_mail": { "type": "string" },
+                "sender_mail": { "type": "string", "format": "email" },
                 "reply-to_name": { "type": "string" },
-                "reply-to_mail": { "type": "string" },
+                "reply-to_mail": { "type": "string", "format": "email" },
                 "bcc_name": { "type": ["string", "null"] },
-                "bcc_mail": { "type": ["string", "null"] },
+                "bcc_mail": { "type": ["string", "null"], "format": "email" },
                 "vars": {
                   "type": "object",
                   "additionalProperties": false,
