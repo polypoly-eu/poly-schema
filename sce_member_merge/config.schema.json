@@ -131,8 +131,8 @@
               "properties": {
                 "sender_name": { "type": "string" },
                 "sender_mail": { "type": "string", "format": "email" },
-                "reply-to_name": { "type": "string" },
-                "reply-to_mail": { "type": "string", "format": "email" },
+                "reply_to_name": { "type": "string" },
+                "reply_to_mail": { "type": "string", "format": "email" },
                 "bcc_name": { "type": ["string", "null"] },
                 "bcc_mail": { "type": ["string", "null"], "format": "email" },
                 "vars": {
