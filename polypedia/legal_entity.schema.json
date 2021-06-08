@@ -258,9 +258,6 @@
                       "ppid": {
                         "type": ["string", "null"]
                       },
-                      "north_data_id": {
-                        "type": ["string", "null", "number"]
-                      },
                       "relationship_type": {
                         "type": "string"
                       },
