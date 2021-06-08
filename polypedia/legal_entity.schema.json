@@ -271,6 +271,12 @@
                 "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
               }
             },
+            "entity_groups": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
             "management_tenures": {
               "type": "object",
               "additionalProperties": false,
