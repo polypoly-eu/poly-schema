@@ -114,9 +114,6 @@
                   "remove_action": {
                     "type": ["string", "boolean"],
                     "enum": [ "remove", "unsub", false, "False", "false"]
-                  },
-                  "remove_metadata": {
-                    "type": "boolean"
                   }
                 }
               }
