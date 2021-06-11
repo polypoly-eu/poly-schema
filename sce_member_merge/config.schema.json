@@ -99,22 +99,24 @@
             "api_key": { "type": "string", "pattern": "^~!vault$" },
             "api_secret": { "type": "string", "pattern": "^~!vault$" },
             "contact_lists": {
-              "type": "object",
-              "additionalProperties": false,
-              "patternProperties": {
-                "^\\d+$": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "add_action": {
-                      "type": "string",
-                      "enum": [ "addforce", "addnoforce", "remove", "unsub "]
-                    },
-                    "remove_action": {
-                      "type": ["string", "boolean"],
-                      "enum": [ "remove", "unsub", false, "False", "false"]
-                    },
-                    "remove_metadata": {"type": "boolean"}
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "contactlist_id": {
+                    "type": "integer"
+                  },
+                  "add_action": {
+                    "type": "string",
+                    "enum": [ "addforce", "addnoforce", "remove", "unsub "]
+                  },
+                  "remove_action": {
+                    "type": ["string", "boolean"],
+                    "enum": [ "remove", "unsub", false, "False", "false"]
+                  },
+                  "remove_metadata": {
+                    "type": "boolean"
                   }
                 }
               }
