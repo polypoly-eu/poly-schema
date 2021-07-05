@@ -76,6 +76,10 @@
       "properties": {
         "status": { "type": "string" },
         "name": { "type": "string" },
+        "product_owners": {
+          "type": "array",
+          "items": {"type": "string"
+        },
         "business_models": {
           "type": "object",
           "additionalProperties": false,
