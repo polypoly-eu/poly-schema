@@ -78,7 +78,7 @@
         "name": { "type": "string" },
         "product_owners": {
           "type": "array",
-          "items": {"type": "string"
+          "items": {"type": "string"}
         },
         "business_models": {
           "type": "object",
