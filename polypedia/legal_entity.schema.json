@@ -264,8 +264,7 @@
                       "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
                     }
                   }
-                },
-                "research_sources" : { "$ref": "definitions.schema.json#/research_sources" }
+                }
               }
             },
             "entity_groups": {
