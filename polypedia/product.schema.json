@@ -153,6 +153,7 @@
           "additionalProperties": false,
           "properties": {
             "tags": { "type": ["array", "null"] },
+            "expanded_tags": { "type": ["object", "null"] },
             "editorials" : {
               "type": ["array", "null"],
               "items": { "$ref": "definitions.schema.json#/editorial" },

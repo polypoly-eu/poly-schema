@@ -188,6 +188,7 @@
           "additionalProperties": false,
           "properties": {
             "tags": { "type": ["array", "null"] },
+            "expanded_tags": { "type": ["object", "null"] },
             "editorials" : {
               "type": ["array", "null"],
               "items": { "$ref": "definitions.schema.json#/editorial" },
@@ -268,6 +269,12 @@
               }
             },
             "entity_groups": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "products_owned": {
               "type": "array",
               "items": {
                 "type": "string"
