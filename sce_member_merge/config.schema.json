@@ -71,6 +71,15 @@
           "items": {
             "type": "string"
           }
+        },
+        "country_locale": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "^.*$": {
+              "type": "string"
+            }
+          }
         }
       }
     },
