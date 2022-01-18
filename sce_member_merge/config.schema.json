@@ -72,7 +72,7 @@
             "type": "string"
           }
         },
-        "country_locale": {
+        "citizenship_locale": {
           "type": "object",
           "additionalProperties": false,
           "patternProperties": {
